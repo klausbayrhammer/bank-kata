@@ -1,10 +1,13 @@
 import {Transaction} from "./transaction"
 
 export default class TransactionRepository {
-    addTransaction(value: number): void {
-        throw new Error('not implemented')
+    private transactions: Transaction[] = []
+
+    addTransaction(amount: number): void {
+        const transaction = new Transaction(amount)
+        this.transactions.push(transaction)
     }
     getAllTransactions(): Transaction[] {
-        throw new Error('not implemented')
+        return this.transactions;
     }
 }
