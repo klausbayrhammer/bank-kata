@@ -1,7 +1,15 @@
 import {Transaction} from "./transaction"
+import TransactionFormatter from "./transaction-formatter"
 
-export class TransactionPrinter {
+export default class TransactionPrinter {
+    private transactionFormatter: TransactionFormatter
+    constructor(transactionFormatter: TransactionFormatter) {
+        this.transactionFormatter = transactionFormatter
+    }
+
     printTransactions(transactions: Transaction[]): void {
-        throw new Error('not implemented')
+        const header = 'Date||Amount||Balance'
+        const formattedTransactions = this.transactionFormatter.formatTransactions(transactions)
+        console.log([header, ...formattedTransactions].join('\n'))
     }
 }

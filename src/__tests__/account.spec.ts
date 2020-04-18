@@ -1,5 +1,7 @@
 import 'jest'
 import Account from '../account'
+import TransactionRepository from "../transaction-repository"
+import TransactionPrinter from "../transaction-printer"
 
 const addTransaction = jest.fn()
 const getAllTransactions = jest.fn()
@@ -8,7 +10,7 @@ const printTransactions = jest.fn()
 let account: Account;
 
 beforeEach(function () {
-    account = new Account({addTransaction, getAllTransactions}, {printTransactions})
+    account = new Account({addTransaction, getAllTransactions} as unknown as TransactionRepository, {printTransactions} as unknown as TransactionPrinter)
 });
 
 afterEach(function () {

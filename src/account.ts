@@ -1,5 +1,5 @@
 import TransactionRepository from './transaction-repository';
-import {TransactionPrinter} from "./transaction-printer"
+import TransactionPrinter from "./transaction-printer"
 
 interface Account {
     deposit(amount:number): void
